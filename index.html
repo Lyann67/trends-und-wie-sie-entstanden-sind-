@@ -1,0 +1,729 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Trend World – Wie entstehen Trends?</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+/* GRUNDDESIGN */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #33202b;
+  background: linear-gradient(
+    135deg,
+    #b9e6a5 0%,
+    #fafff6 35%,
+    #ffffff 52%,
+    #ffd0e0 75%,
+    #ff9fc5 100%
+  );
+  background-attachment: fixed;
+  line-height: 1.8;
+}
+
+/* NAVIGATION */
+
+nav {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  padding: 18px 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  border-bottom: 2px solid #ff8cbb;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.7rem;
+  color: #ff2385;
+  text-decoration: none;
+}
+
+nav a {
+  color: #583044;
+  text-decoration: none;
+  font-weight: 600;
+  margin: 0 7px;
+}
+
+nav a:hover {
+  color: #ff2385;
+}
+
+/* STARTBEREICH */
+
+.hero {
+  text-align: center;
+  padding: 95px 20px 80px;
+}
+
+.tag {
+  display: inline-block;
+  background: #ff2385;
+  color: white;
+  padding: 7px 18px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.3;
+  margin: 22px 0;
+  color: #ff2385;
+  text-shadow: 3px 4px 0 #ffffff;
+}
+
+.hero p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: #553849;
+}
+
+.hero-button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 13px 26px;
+  border-radius: 30px;
+  background: #ff2385;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 7px 0 #d81569;
+  transition: 0.2s;
+}
+
+.hero-button:hover {
+  transform: translateY(-3px);
+}
+
+/* ALLGEMEINER INHALT */
+
+main {
+  max-width: 1150px;
+  margin: auto;
+  padding: 25px 22px 70px;
+}
+
+.intro {
+  background: rgba(255,255,255,0.88);
+  border: 3px solid #ff83b5;
+  border-radius: 25px;
+  padding: 30px;
+  margin-bottom: 55px;
+  box-shadow: 0 10px 25px rgba(255,35,133,0.12);
+}
+
+.intro h2 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  color: #ff2385;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  text-align: center;
+  margin: 65px 0 35px;
+}
+
+.section-title h2 {
+  font-family: 'Pacifico', cursive;
+  color: #ff2385;
+  font-size: clamp(2rem, 5vw, 3rem);
+}
+
+.section-title p {
+  color: #624253;
+  margin-top: 8px;
+}
+
+/* TREND-KÄSTEN */
+
+.trend-card {
+  background: linear-gradient(135deg, #ff4c9b, #ff1681);
+  color: white;
+  padding: 30px;
+  border-radius: 25px;
+  margin: 30px 0;
+  box-shadow: 0 12px 25px rgba(196, 0, 87, 0.2);
+  border: 3px solid #ffb3d3;
+  scroll-margin-top: 100px;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.trend-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 30px rgba(196, 0, 87, 0.3);
+}
+
+.trend-card h2 {
+  font-family: 'Pacifico', cursive;
+  font-weight: bold;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 18px;
+  line-height: 1.4;
+  text-shadow: 2px 2px 0 rgba(150, 0, 65, 0.15);
+}
+
+.trend-card h3 {
+  margin: 18px 0 8px;
+  font-size: 1.1rem;
+}
+
+.trend-card p {
+  margin: 12px 0;
+}
+
+.trend-card strong {
+  color: #fff4a8;
+}
+
+/* BILDER */
+
+.trend-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 18px;
+  border: 4px solid white;
+  margin: 18px 0 24px;
+  background: #ffe3ef;
+}
+
+.image-caption {
+  font-size: 0.82rem;
+  opacity: 0.9;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+
+/* ZUSATZKASTEN */
+
+.fact-box {
+  background: rgba(255,255,255,0.94);
+  color: #63314a;
+  padding: 18px;
+  border-radius: 15px;
+  margin-top: 22px;
+  border-left: 6px solid #a7df8d;
+}
+
+.fact-box strong {
+  color: #ff2385;
+}
+
+/* FOOTER */
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  background: #ff2385;
+  color: white;
+  margin-top: 30px;
+}
+
+footer p {
+  margin: 7px 0;
+}
+
+footer a {
+  color: white;
+}
+
+/* HANDY-DESIGN */
+
+@media (max-width: 650px) {
+  nav {
+    justify-content: center;
+  }
+
+  nav div {
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 4px;
+    font-size: 0.9rem;
+  }
+
+  .hero {
+    padding: 65px 18px;
+  }
+
+  .trend-card {
+    padding: 20px;
+  }
+
+  .trend-image {
+    height: 220px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+  <a href="#start" class="logo">Trend World ♡</a>
+
+  <div>
+    <a href="#matcha">Matcha</a>
+    <a href="#labubu">Labubus</a>
+    <a href="#brainrot">Brainrot</a>
+    <a href="#schokolade">Dubai-Schokolade</a>
+    <a href="#2016">2016 in 2026</a>
+  </div>
+</nav>
+
+<!-- STARTSEITE -->
+
+<header class="hero" id="start">
+  <span class="tag">TREND REPORT ✦</span>
+
+  <h1>Wie entstehen Trends?</h1>
+
+  <p>
+    Von grünem Matcha über kuschelige Labubus bis hin zu
+    viralen Internet-Memes: Trends sind überall! Aber warum
+    werden bestimmte Dinge plötzlich beliebt, und wie verbreiten
+    sie sich so schnell? Hier erfährst du die Geschichten hinter
+    fünf bekannten Trends.
+  </p>
+
+  <a class="hero-button" href="#matcha">
+    Entdecke die Trends ↓
+  </a>
+</header>
+
+<main>
+
+<!-- EINLEITUNG -->
+
+<section class="intro">
+  <h2>Was ist überhaupt ein Trend? ♡</h2>
+
+  <p>
+    Ein Trend ist etwas, das innerhalb einer bestimmten Zeit
+    immer beliebter wird. Das kann ein Getränk, ein Spielzeug,
+    ein bestimmter Kleidungsstil oder sogar eine bestimmte Art
+    von Humor sein. Trends entstehen häufig, wenn Menschen
+    etwas Neues entdecken, es mit anderen teilen und immer
+    mehr Leute mitmachen.
+  </p>
+
+  <p>
+    Besonders soziale Netzwerke wie TikTok, Instagram und
+    YouTube können Trends sehr schnell verbreiten. Influencer,
+    Prominente, Unternehmen und ganz normale Nutzer können
+    dazu beitragen, dass ein Thema weltweit bekannt wird.
+    Trotzdem wird nicht jeder Trend dauerhaft beliebt:
+    Manche verschwinden nach wenigen Wochen, andere bleiben
+    über Jahre hinweg bekannt.
+  </p>
+</section>
+
+<!-- TREND 1: MATCHA -->
+
+<section class="trend-card" id="matcha">
+  <h2>01. Matcha 🍵</h2>
+
+  <img
+    class="trend-image"
+    src="https://images.unsplash.com/photo-1515823064-d6e0c04616a7?auto=format&fit=crop&w=1200&q=85"
+    alt="Grüner Matcha-Tee in einer Schale"
+    loading="lazy"
+  >
+
+  <p class="image-caption">
+    Matcha ist bekannt für seine leuchtend grüne Farbe.
+  </p>
+
+  <h3>Wie ist der Trend entstanden?</h3>
+
+  <p>
+    Matcha ist fein gemahlener grüner Tee, der besonders mit
+    der japanischen Teekultur verbunden ist. Er wurde also
+    nicht erst durch soziale Medien erfunden, sondern hat eine
+    lange Geschichte und wird in Japan seit Jahrhunderten
+    bei traditionellen Teezeremonien verwendet.
+  </p>
+
+  <p>
+    In den letzten Jahren wurde Matcha auch außerhalb Japans
+    immer beliebter. Cafés boten Matcha-Latte, Matcha-Eis,
+    Kuchen und andere grüne Spezialitäten an, während Nutzer
+    ihre Getränke auf TikTok und Instagram präsentierten.
+    Die auffällige Farbe und die vielen Zubereitungsmöglichkeiten
+    machten Matcha besonders fotogen.
+  </p>
+
+  <p>
+    Eine neuere Variante ist <strong>Strawberry Matcha</strong>,
+    bei der Matcha mit Erdbeermilch oder Erdbeerpüree kombiniert
+    wird. Der Kontrast zwischen Grün, Weiß und Rosa sieht
+    besonders auffällig aus und passt gut zu ästhetischen
+    Food-Videos in sozialen Netzwerken.
+  </p>
+
+  <div class="fact-box">
+    <strong>Warum wurde es zum Trend?</strong>
+    <p>
+      Die Kombination aus traditionellem Getränk, neuen Rezepten,
+      auffälligen Farben und Social-Media-Videos machte Matcha
+      für viele Menschen interessant.
+    </p>
+  </div>
+</section>
+
+<!-- TREND 2: LABUBUS -->
+
+<section class="trend-card" id="labubu">
+  <h2>02. Labubus 🧸</h2>
+
+  <img
+    class="trend-image"
+    src="https://images.unsplash.com/photo-1559454403-b8fb88521f11?auto=format&fit=crop&w=1200&q=85"
+    alt="Sammlerfiguren und kleine Spielzeuge"
+    loading="lazy"
+  >
+
+  <p class="image-caption">
+    Sammelfiguren sind bei Fans und Sammlern beliebt.
+  </p>
+
+  <h3>Wie ist der Trend entstanden?</h3>
+
+  <p>
+    Labubu ist eine fantasievolle Figur mit großen Ohren,
+    einem frechen Gesicht und vielen spitzen Zähnen. Die Figur
+    wurde vom Künstler Kasing Lung entworfen und gehört zu
+    seiner Fantasiewelt „The Monsters“. Bekannt wurde sie
+    besonders durch Sammelfiguren des Unternehmens Pop Mart.
+  </p>
+
+  <p>
+    Ein wichtiger Teil des Erfolgs sind sogenannte
+    <strong>Blind Boxes</strong>. Das sind Verpackungen,
+    bei denen man vor dem Öffnen nicht weiß, welche Figur
+    enthalten ist. Dadurch entsteht ein Überraschungseffekt,
+    und manche Sammler versuchen, möglichst viele Varianten
+    oder besonders seltene Figuren zu bekommen.
+  </p>
+
+  <p>
+    Der Trend verbreitete sich stark über soziale Netzwerke,
+    in denen Menschen ihre Sammlungen, Einkäufe und
+    Überraschungs-Unboxings zeigten. Auch Prominente und
+    Influencer, die Labubu-Figuren an Taschen befestigten,
+    trugen zur Aufmerksamkeit bei. So wurde das Spielzeug
+    für viele Menschen gleichzeitig Sammlerobjekt und
+    modisches Accessoire.
+  </p>
+
+  <div class="fact-box">
+    <strong>Warum wurde es zum Trend?</strong>
+    <p>
+      Seltene Figuren, Sammelleidenschaft, Überraschungsboxen
+      und Videos von Fans machten Labubu zu einem viralen
+      Sammlertrend.
+    </p>
+  </div>
+</section>
+
+<!-- TREND 3: BRAINROT -->
+
+<section class="trend-card" id="brainrot">
+  <h2>03. Brainrot 🌀</h2>
+
+  <img
+    class="trend-image"
+    src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=85"
+    alt="Social-Media-Symbole als Sinnbild für Internetkultur"
+    loading="lazy"
+  >
+
+  <p class="image-caption">
+    Memes und kurze Videos prägen die Internetkultur.
+  </p>
+
+  <h3>Wie ist der Trend entstanden?</h3>
+
+  <p>
+    „Brainrot“ ist ein englischer Ausdruck, der wörtlich
+    ungefähr „Gehirnfäule“ bedeutet. Im Internet wird er
+    scherzhaft für Inhalte verwendet, die extrem albern,
+    absurd, wiederholend oder so eingängig sind, dass man
+    ständig an sie denken muss. Der Begriff existierte schon
+    vor dem aktuellen Trend, wurde aber durch soziale Medien
+    besonders bekannt.
+  </p>
+
+  <p>
+    Auf TikTok, YouTube Shorts und anderen Plattformen
+    verbreiteten sich immer mehr kurze Memes, absurde Figuren,
+    wiederkehrende Sounds und absichtlich unsinnige Witze.
+    Manche dieser Inhalte ergeben kaum einen Sinn, sind aber
+    gerade deshalb überraschend und leicht wiederzuerkennen.
+  </p>
+
+  <p>
+    Ein bekanntes Beispiel für die neuere Meme-Welle sind
+    die sogenannten „Italian Brainrot“-Figuren. Dabei handelt
+    es sich um surreal zusammengesetzte Figuren mit
+    ungewöhnlichen Namen, künstlich wirkenden Bildern und
+    oft übertriebenen Stimmen. Nutzer übernehmen diese
+    Figuren in Videos, machen Parodien daraus und entwickeln
+    eigene Varianten.
+  </p>
+
+  <div class="fact-box">
+    <strong>Warum wurde es zum Trend?</strong>
+    <p>
+      Kurze Videos, absurder Humor, einprägsame Sounds und
+      leicht nachzumachende Memes sorgen dafür, dass sich
+      Brainrot-Inhalte schnell verbreiten.
+    </p>
+  </div>
+</section>
+
+<!-- TREND 4: DUBAI-SCHOKOLADE -->
+
+<section class="trend-card" id="schokolade">
+  <h2>04. Dubai-Schokolade 🍫</h2>
+
+  <img
+    class="trend-image"
+    src="https://images.unsplash.com/photo-1548907040-4d42a4c5c9e8?auto=format&fit=crop&w=1200&q=85"
+    alt="Schokolade als Inspiration für den Dubai-Schokoladentrend"
+    loading="lazy"
+  >
+
+  <p class="image-caption">
+    Schokolade mit besonderen Füllungen wurde zum Social-Media-Hit.
+  </p>
+
+  <h3>Wie ist der Trend entstanden?</h3>
+
+  <p>
+    Die bekannte Dubai-Schokolade wurde von der Marke
+    Fix Dessert Chocolatier in Dubai bekannt gemacht.
+    Die Kreation kombiniert Schokolade mit einer Füllung,
+    die unter anderem Pistaziencreme und knusprige
+    Teigfäden enthält. Diese dünnen Teigfäden werden häufig
+    als Kadayif oder Kataifi bezeichnet und sind in
+    verschiedenen Süßspeisen des Nahen Ostens verbreitet.
+  </p>
+
+  <p>
+    Besonders große Aufmerksamkeit erhielt die Schokolade
+    durch ein virales Video der Food-Creatorin Maria Vehera
+    auf TikTok im Jahr 2023. In dem Video wurde die Tafel
+    aufgebrochen, sodass die auffällige Füllung zu sehen war.
+    Das ungewöhnliche Aussehen und das Knuspergeräusch
+    machten das Video für viele Zuschauer interessant.
+  </p>
+
+  <p>
+    Danach wollten immer mehr Menschen die Schokolade
+    probieren oder selbst herstellen. Bäckereien, Cafés und
+    Lebensmittelmarken entwickelten eigene Versionen,
+    beispielsweise als Eis, Kuchen, Croissants oder
+    Aufstrich. Dadurch wurde aus einer speziellen
+    Süßigkeit ein internationaler Food-Trend.
+  </p>
+
+  <div class="fact-box">
+    <strong>Warum wurde es zum Trend?</strong>
+    <p>
+      Die auffällige Füllung, das Knuspergefühl, die
+      Reaktionen beim Probieren und die vielen Nachmachvideos
+      sorgten für große Reichweite.
+    </p>
+  </div>
+</section>
+
+<!-- TREND 5: 2016 IN 2026 -->
+
+<section class="trend-card" id="2016">
+  <h2>05. 2026: Das neue 2016 📸</h2>
+
+  <img
+    class="trend-image"
+    src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=85"
+    alt="Kamera als Symbol für Erinnerungen und alte Fotos"
+    loading="lazy"
+  >
+
+  <p class="image-caption">
+    Alte Fotos und nostalgische Ästhetik bringen Erinnerungen zurück.
+  </p>
+
+  <h3>Wie ist der Trend entstanden?</h3>
+
+  <p>
+    Mit „2026 ist das neue 2016“ ist ein nostalgischer
+    Internettrend gemeint, bei dem Menschen auf die Mode,
+    Musik, Fotos und Internetkultur des Jahres 2016
+    zurückblicken. Zehn Jahre Abstand bieten einen Anlass,
+    alte Bilder und Erinnerungen wieder hervorzuholen.
+    Der Trend knüpft an das Gefühl an, dass diese Zeit
+    für viele Menschen eine besondere Ästhetik hatte.
+  </p>
+
+  <p>
+    In sozialen Netzwerken teilen Nutzer alte Selfies,
+    frühere Outfits, beliebte Songs und Erinnerungen an
+    Apps oder Internetphänomene aus dieser Zeit. Manche
+    bearbeiten neue Bilder so, dass sie wie ältere
+    Smartphone-Fotos aussehen. Andere verwenden Musik,
+    Filter und Bildstile, die sie mit 2016 verbinden.
+  </p>
+
+  <p>
+    Nostalgie spielt dabei eine wichtige Rolle.
+    <strong>Nostalgie</strong> ist ein Gefühl, bei dem man
+    sich an vergangene Zeiten erinnert und sie vermisst
+    oder besonders schön findet. Der Trend funktioniert
+    deshalb nicht nur über bestimmte Kleidungsstücke oder
+    Lieder, sondern auch über gemeinsame Erinnerungen
+    und das Gefühl, eine frühere Internetzeit wieder
+    aufleben zu lassen.
+  </p>
+
+  <div class="fact-box">
+    <strong>Warum wurde es zum Trend?</strong>
+    <p>
+      Der Zehn-Jahres-Abstand, wiederentdeckte Musik,
+      alte Fotos und gemeinsame Erinnerungen machen
+      2016 für viele Menschen wieder interessant.
+    </p>
+  </div>
+</section>
+
+<!-- FAZIT -->
+
+<section class="intro">
+  <h2>Was haben alle diese Trends gemeinsam? 💗</h2>
+
+  <p>
+    Obwohl Matcha, Labubus, Brainrot, Dubai-Schokolade und
+    die Nostalgie für 2016 sehr unterschiedlich sind, haben
+    sie einige Gemeinsamkeiten. Sie wecken Neugier, bieten
+    etwas, das Menschen gerne teilen, und lassen sich in
+    sozialen Netzwerken leicht zeigen oder nachmachen.
+  </p>
+
+  <p>
+    Oft beginnt ein Trend mit einer einzelnen Idee, einem
+    Produkt oder einem Video. Wenn viele Menschen darauf
+    reagieren, Inhalte dazu erstellen und sie weiterverbreiten,
+    wächst die Aufmerksamkeit. Unternehmen können diese
+    Aufmerksamkeit nutzen, aber nicht jeder Trend wird
+    automatisch langfristig erfolgreich.
+  </p>
+
+  <p>
+    Trends zeigen deshalb auch, wie stark Kultur,
+    Gemeinschaft, Werbung und soziale Medien beeinflussen,
+    was wir entdecken und interessant finden.
+  </p>
+</section>
+
+<!-- QUELLEN -->
+
+<section class="intro">
+  <h2>Quellen und weiterführende Informationen 🔎</h2>
+
+  <p>
+    Für weitere Informationen zu den Hintergründen dieser
+    Trends kannst du die folgenden Seiten besuchen.
+  </p>
+
+  <p>
+    <strong>Matcha und japanischer Tee:</strong><br>
+    <a href="https://www.japan.travel/en/" target="_blank" rel="noopener noreferrer">
+      Japan National Tourism Organization
+    </a>
+  </p>
+
+  <p>
+    <strong>Labubu und Sammelfiguren:</strong><br>
+    <a href="https://www.popmart.com/" target="_blank" rel="noopener noreferrer">
+      Pop Mart – offizielle Website
+    </a>
+  </p>
+
+  <p>
+    <strong>Internetkultur und Memes:</strong><br>
+    <a href="https://knowyourmeme.com/" target="_blank" rel="noopener noreferrer">
+      Know Your Meme – Internetphänomene
+    </a>
+  </p>
+
+  <p>
+    <strong>Dubai-Schokolade:</strong><br>
+    <a href="https://www.bbc.com/news" target="_blank" rel="noopener noreferrer">
+      BBC News – Nachrichten und Hintergrundberichte
+    </a>
+  </p>
+
+  <p>
+    <strong>Trends und soziale Netzwerke:</strong><br>
+    <a href="https://trends.google.com/trends/" target="_blank" rel="noopener noreferrer">
+      Google Trends – Suchinteresse im Zeitverlauf
+    </a>
+  </p>
+
+  <p>
+    <strong>Hinweis:</strong> Bilder auf dieser Webseite werden
+    über externe Bildadressen geladen. Dafür muss eine
+    Internetverbindung bestehen. Die Bildmotive sind
+    illustrative Beispiele und zeigen nicht zwingend das
+    jeweilige Originalprodukt oder eine bestimmte Trendfigur.
+  </p>
+</section>
+
+</main>
+
+<footer>
+  <p class="logo" style="color:white;">Trend World ♡</p>
+  <p>Trends entdecken, verstehen und hinterfragen.</p>
+  <p>Schulprojekt · 2026</p>
+  <a href="#start">↑ Zurück nach oben</a>
+</footer>
+
+</body>
+</html>
+i
